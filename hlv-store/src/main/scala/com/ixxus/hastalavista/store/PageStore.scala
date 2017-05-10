@@ -1,7 +1,5 @@
 package com.ixxus.hastalavista.store
 
-import scala.collection.mutable
-
 /**
   * Page related Store
   *
@@ -10,12 +8,15 @@ import scala.collection.mutable
 trait PageStoreComponent {
 
     trait PageStore {
-        val pages : mutable.HashSet[Page]
+        var pages : Set[Page]
+
+        def +=(p: Page) { pages += p }
+        def -=(p: Page) { pages -= p }
     }
 
     val pageStore: PageStore
 
     class PageStoreImpl extends PageStore {
-        override val pages: mutable.HashSet[Page] = mutable.HashSet()
+        override var pages: Set[Page] = Set()
     }
 }

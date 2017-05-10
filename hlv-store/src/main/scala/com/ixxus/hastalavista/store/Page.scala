@@ -5,7 +5,7 @@ import java.util.UUID
 import sun.misc.BASE64Encoder
 
 /**
-  * Representation of a Page
+  * Representation of a Page.
   *
   * Created by Michael.Seddon on 09-May-17.
   */
@@ -20,7 +20,7 @@ class Page private(val url: String,
 
     val puid: String = UUID.randomUUID.toString
 
-    def +=(pageToAdd: Page) { relatedPages += pageToAdd }
+    def +=(p: Page) { relatedPages += p }
 
     def +=(t: (String, String)) { meta += t }
 

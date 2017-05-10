@@ -7,12 +7,12 @@ import org.springframework.context.annotation.{ComponentScan, Configuration}
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
-class CrawlerApplication
+class StoreApplication
 
-object CrawlerApplication  {
+object StoreApplication  {
 
     def main(args: Array[String]): Unit = {
-        SpringApplication.run(classOf[CrawlerApplication])
+        SpringApplication.run(classOf[StoreApplication])
     }
 
 }
