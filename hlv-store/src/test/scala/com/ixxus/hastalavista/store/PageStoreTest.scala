@@ -8,8 +8,8 @@ import com.ixxus.hastalavista.StoreTest
 class PageStoreTest extends StoreTest with PageStoreComponent {
 
     override val pageStore: PageStore = new PageStoreImpl
-    val pageToAdd = new Page(null, null, null, null, null)
-    var pageToAddRemove = new Page(null, null, null, null, null)
+    val pageToAdd = Page("url1", "contents")
+    var pageToAddRemove = Page("url2", "contents")
 
     override def beforeEach(): Unit = {
         pageStore.pages.clear()
