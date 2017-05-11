@@ -9,15 +9,15 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-	<artifactId>hlv-store</artifactId>
+	<artifactId>hlv-api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>store</name>
-    <description>HastaStore</description>
+    <name>api</name>
+    <description>Hasta API</description>
 
     <properties>
-        <start-class>com.ixxus.hastalavista.StoreApplication</start-class>
+        <start-class>com.ixxus.hastalavista.api.ApiApplication</start-class>
     </properties>
 
   <dependencies>

@@ -1,5 +1,6 @@
-package com.ixxus.hastalavista.store
+package com.ixxus.hastalavista
 
+import com.ixxus.hastalavista.store.HastaStoreComponent
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.context.annotation.{ComponentScan, Configuration}
@@ -9,10 +10,13 @@ import org.springframework.context.annotation.{ComponentScan, Configuration}
 @ComponentScan
 class StoreApplication
 
-object StoreApplication  {
+object StoreApplication {
 
     def main(args: Array[String]): Unit = {
         SpringApplication.run(classOf[StoreApplication])
     }
+}
 
+object ConfigObject extends HastaStoreComponent {
+    val hastaStore = new HastaStoreImpl()
 }
