@@ -1,7 +1,7 @@
 package com.ixxus.hastalavista.controller
 
+import com.ixxus.hastalavista.ConfigObject
 import com.ixxus.hastalavista.store.Page
-import com.ixxus.hastalavista.{ConfigObject}
 import org.springframework.web.bind.annotation._
 
 import scala.xml.XML
@@ -12,9 +12,9 @@ import scala.xml.XML
   * Created by Michael.Seddon on 10-May-17.
   */
 @RestController
-class StoreController() {
+class StoreController() extends AbstractController {
 
-    val pageStore = ConfigObject.hastaStore.pageStore
+    //TODO: extract controller logic in to service!
 
     @RequestMapping(value = Array("/page"),
         method = Array(RequestMethod.POST),
@@ -35,14 +35,12 @@ class StoreController() {
         val urls = (pbod \ "page" \ "url").map(u => u.text)
         val conts = (pbod \ "page" \ "contents").map(c => c.text)
 
-        val tup = urls.zip(conts)
-        tup.foreach(t => pageStore += Page(t._1, t._2))
+        urls.zip(conts).foreach(t => pageStore += Page(t._1, t._2))
     }
 
     @RequestMapping(value = Array("/pages"),
         method = Array(RequestMethod.GET))
     def getPages() = {
-        val puidUrl = for(p <- pageStore.pages) yield p.puid + " " + p.url
-        puidUrl.mkString("\n")
+        (for (p <- pageStore.pages) yield p.puid + " " + p.url).mkString("\n")
     }
 }
