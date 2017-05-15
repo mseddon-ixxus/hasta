@@ -17,4 +17,3 @@ trait AnaStoreComponent {
         //override val page: Page = new Page
     }
 }
-

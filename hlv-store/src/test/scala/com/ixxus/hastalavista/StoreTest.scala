@@ -12,22 +12,6 @@ import scala.reflect.ClassTag
   */
 trait StoreTest extends FlatSpec with BeforeAndAfterEach with BeforeAndAfterAll with Matchers {
 
-    override def beforeEach(): Unit = {
-        super.beforeEach()
-    }
-
-    override def afterEach(): Unit = {
-        super.afterEach()
-    }
-
-    override def beforeAll(): Unit = {
-        super.beforeAll()
-    }
-
-    override def afterAll(): Unit = {
-        super.afterAll()
-    }
-
     /** Matcher for comparing with null. E.g. xxx should nullable */
     def nullable[T: ClassTag] =
         Matcher { (nullObj: T) =>
