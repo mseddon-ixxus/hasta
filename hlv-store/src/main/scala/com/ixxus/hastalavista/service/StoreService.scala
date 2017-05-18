@@ -18,7 +18,9 @@ class StoreService extends AbstractService {
     }
 
     def addPages(xml: String): Unit = {
-        val pbod = XML.loadString(xml)
+        //val cs = xml.replace("&nbsp;", " ")
+        val cs = xml.replace("&", " ") //TODO: THIS IS A TEMP HACK
+        val pbod = XML.loadString(cs)
         val urls = (pbod \ "page" \ "url").map(u => u.text)
         val conts = (pbod \ "page" \ "contents").map(c => c.text)
 

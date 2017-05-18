@@ -19,6 +19,14 @@ class SearchController() extends AbstractController {
     @RequestMapping(value = Array("/find/page"),
         method = Array(RequestMethod.GET))
     def findPages(@RequestParam url: String) = {
-        searchService.findPage(url)
+        (for (f <- searchService.findPage(url)) yield f.puid + " " + f.url + "---" + f.rawContents).mkString("\n")
+
+    }
+
+    @RequestMapping(value = Array("/find/term"),
+        method = Array(RequestMethod.GET))
+    def find(@RequestParam term: String) = {
+        (for (f <- searchService.find(term))
+            yield f._1.puid + " " + f._1.url + " --- " + f._2).mkString("\n")
     }
 }
